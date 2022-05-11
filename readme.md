@@ -14,7 +14,7 @@ const debug = createDebug({
   prettyStringify: true,
 });
 
-// The following line will log "Hello ['world']" with colours in development and do nothing in production (the template string won't be evaluated either).
+// The following line will log "Hello ['world']" with colors in development and do nothing in production (the template string won't be evaluated either).
 debug((f) => f`Hello ${['world']}`);
 ```
 
@@ -49,13 +49,13 @@ If true, uses [json-stringify-pretty-compact] to stringify objects. Otherwise, u
 
 ### LazyDebugFunction
 
-Type: `(cb: (f: FormatHelper) => string) => void`
+Type: `(callback: (format: FormatHelper) => string) => void`
 
-### cb
+#### callback
 
 The callback (only called in development) that returns the message to log.
 
-#### f
+#### format
 
 Type: `FormatHelper`
 
