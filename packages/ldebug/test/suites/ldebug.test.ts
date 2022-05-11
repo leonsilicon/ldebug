@@ -1,7 +1,11 @@
+import process from 'node:process';
 import { expect, test } from 'vitest';
 import { spyOnImplementing } from 'vitest-mock-process';
 
 import { createDebug } from '~/index.js';
+
+// Needed to override `lionp` settings
+process.env.FORCE_COLOR = '3';
 
 test('works', () => {
 	const debug = createDebug({
