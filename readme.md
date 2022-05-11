@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/ldebug)](https://npmjs.com/package/ldebug)
 
-A debug utility that evaluates messages lazily.
+A debugging utility that evaluates messages lazily.
 
 ## Usage
 
