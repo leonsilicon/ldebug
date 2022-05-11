@@ -40,7 +40,7 @@ Default: `true`
 
 Highlights the messages using [cli-highlighter](https://github.com/leonzalion/cli-highlighter).
 
-### options.prettyStringify
+#### options.prettyStringify
 
 Type: `boolean`\
 Default: `true`
