@@ -27,6 +27,8 @@ export function createFormatHelper(options: CreateFormatOptions): FormatHelper {
 				debugString += maybeHighlight(stringify(value), {
 					language: 'json',
 				});
+			} else {
+				debugString += maybeHighlight(String(value));
 			}
 		}
 
