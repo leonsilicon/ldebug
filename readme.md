@@ -65,7 +65,7 @@ Type: `FormatHelper`
 export type FormatHelper = (
   strings: TemplateStringsArray,
   ...values: unknown[]
-)> string;
+) => string;
 ```
 
 A format helper ES6 template tag that applies transformations like formatting for certain non-string values (e.g. objects) when turning them strings.
