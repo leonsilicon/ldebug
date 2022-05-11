@@ -1,0 +1,9 @@
+// Vitest Snapshot v1
+
+exports[`works 1`] = `
+[
+  [
+    "hello [[31m\\"world\\"[39m]",
+  ],
+]
+`;

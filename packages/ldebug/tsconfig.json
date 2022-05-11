@@ -1,0 +1,12 @@
+{
+	"extends": "@leonzalion/configs/tsconfig.json",
+	"compilerOptions": {
+		"lib": ["ES2021", "DOM"],
+		"outDir": "dist",
+		"baseUrl": ".",
+		"paths": {
+			"~/*": ["./src/*"]
+		}
+	},
+	"include": ["./src"]
+}
