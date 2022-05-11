@@ -20,9 +20,9 @@ debug((f) => f`Hello ${['world']}`);
 
 ## API
 
-### createDebug(options)
+### createDebug(options): `LazyDebugFunction`
 
-Returns: `type LazyDebugFunction = (cb: (f: FormatHelper) => string) => void`
+Returns: `type LazyDebugFunction = `
 
 Creates a new debug function with the given options.
 
@@ -47,6 +47,23 @@ Default: `true`
 
 If true, uses [json-stringify-pretty-compact] to stringify objects. Otherwise, uses `JSON.stringify()`.
 
-### FormatHelper
+### LazyDebugFunction
+
+Type: `(cb: (f: FormatHelper) => string) => void`
+
+### cb
+
+The callback (only called in development) that returns the message to log.
+
+#### f
+
+Type: `FormatHelper`
+
+```typescript
+export type FormatHelper = (
+  strings: TemplateStringsArray,
+  ...values: unknown[]
+)> string;
+```
 
 A format helper ES6 template tag that applies transformations like formatting for certain non-string values (e.g. objects) when turning them strings.
