@@ -20,7 +20,11 @@ export function createFormatHelper(options: CreateFormatOptions): FormatHelper {
 	): string => {
 		let debugString = '';
 
-		for (const [string, value] of zip(strings as unknown as string[], values)) {
+		for (const [string, value] of zip(
+			// `strings` will always one more element than `values`
+			strings.slice(0, -1) as unknown as string[],
+			values
+		)) {
 			debugString += maybeHighlight(string);
 
 			if (typeof value === 'object' && value !== null) {

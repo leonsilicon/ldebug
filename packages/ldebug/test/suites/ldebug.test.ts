@@ -37,3 +37,12 @@ test('works without prettifying', () => {
 
 	expect(mockDebug).toBeCalledWith('hello ["world"]');
 });
+
+test('does not evaluate the callback in production', () => {
+	const debug = createDebug({
+		isDevelopment: false,
+	});
+
+	// @ts-expect-error: Won't be evaluated
+	debug((f) => f`hello ${undefined!.error}`);
+});

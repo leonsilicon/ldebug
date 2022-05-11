@@ -1,5 +1,7 @@
 # ldebug
 
+[![npm version](https://img.shields.io/npm/v/nanoid-nice)](https://npmjs.com/package/nanoid-nice)
+
 A debug utility that evaluates messages lazily.
 
 ## Usage
