@@ -1,18 +1,5 @@
 {
 	"name": "@ldebug/monorepo",
-	"version": "0.0.0",
-	"description": "Lazy debugging.",
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/leonzalion/ldebug.git"
-	},
-	"homepage": "https://github.com/leonzalion/ldebug#readme",
-	"author": {
-		"name": "Leon Si",
-		"email": "contact@leonzalion.com",
-		"url": "https://leonzalion.com"
-	},
 	"scripts": {
 		"prepare": "lion-git-hooks",
 		"release": "pnpm --filter=ldebug release",
