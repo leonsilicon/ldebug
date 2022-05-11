@@ -40,5 +40,19 @@
 	},
 	"publishConfig": {
 		"directory": "dist"
-	}
+	},
+	"keywords": [
+		"debug",
+		"log",
+		"lazy",
+		"format",
+		"stringify",
+		"json",
+		"object",
+		"template",
+		"function",
+		"logger",
+		"development",
+		"evaluate"
+	]
 }
