@@ -1,6 +1,6 @@
 export type FormatHelper = (
 	strings: TemplateStringsArray,
-	values: unknown[]
+	...values: unknown[]
 ) => string;
 
 export interface CreateFormatOptions {
