@@ -21,7 +21,7 @@ export function createFormatHelper(options: CreateFormatOptions): FormatHelper {
 		let debugString = '';
 
 		for (const [string, value] of zip(strings as unknown as string[], values)) {
-			debugString += string;
+			debugString += maybeHighlight(string);
 
 			if (typeof value === 'object' && value !== null) {
 				debugString += maybeHighlight(stringify(value), {

@@ -1,27 +1,27 @@
+import type { LazyDebugFunction } from '~/types/debug.js';
 import type { CreateFormatOptions, FormatHelper } from '~/types/format.js';
 import { createFormatHelper } from '~/utils/format.js';
 
 interface CreateDebugProps extends Partial<CreateFormatOptions> {
-	isDevelopment: boolean | (() => boolean);
+	isDevelopment: boolean;
 }
 
-export function createDebug(props: CreateDebugProps) {
+export function createDebug(props: CreateDebugProps): LazyDebugFunction {
 	const defaultOptions: CreateFormatOptions = {
 		highlight: true,
 		prettyStringify: true,
 	};
 	const d = createFormatHelper({ ...defaultOptions, ...props });
 
-	const debug = (cb: (d: FormatHelper) => string) => {
-		const isDevelopment =
-			typeof props.isDevelopment === 'boolean'
-				? props.isDevelopment
-				: props.isDevelopment();
-
-		if (isDevelopment) {
+	if (props.isDevelopment) {
+		const debug = (cb: (d: FormatHelper) => string) => {
 			console.debug(cb(d));
-		}
-	};
+		};
 
-	return debug;
+		return debug;
+	} else {
+		return () => {
+			/* noop */
+		};
+	}
 }
