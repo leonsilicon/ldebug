@@ -20,9 +20,9 @@ debug((f) => f`Hello ${['world']}`);
 
 ## API
 
-### createDebug(options): `LazyDebugFunction`
+### createDebug(options)
 
-Returns: `type LazyDebugFunction = `
+Returns: [`LazyDebugFunction`](#lazydebugfunction)
 
 Creates a new debug function with the given options.
 
