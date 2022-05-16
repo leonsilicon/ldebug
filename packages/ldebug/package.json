@@ -18,13 +18,9 @@
 	"scripts": {
 		"preinstall": "pnpm build",
 		"prepare": "lion-git-hooks",
-		"release": "lionp",
 		"build": "node-ts ./scripts/build.ts",
 		"start": "node-ts ./src/index.ts",
-		"test": "vitest run",
-		"lint": "eslint --cache --fix .",
-		"prettier": "prettier --write .",
-		"typecheck": "tsc --noEmit"
+		"test": "vitest run"
 	},
 	"dependencies": {
 		"cli-highlighter": "^1.0.0",

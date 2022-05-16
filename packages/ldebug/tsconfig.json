@@ -1,5 +1,5 @@
 {
-	"extends": "@leonzalion/configs/tsconfig.json",
+	"extends": "lionconfig/tsconfig.json",
 	"compilerOptions": {
 		"lib": ["ES2021", "DOM"],
 		"outDir": "dist",
