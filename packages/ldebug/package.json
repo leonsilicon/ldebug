@@ -1,6 +1,6 @@
 {
 	"name": "ldebug",
-	"version": "0.1.2",
+	"version": "1.0.0",
 	"description": "A debugging utility that evaluates messages lazily.",
 	"license": "MIT",
 	"repository": {
