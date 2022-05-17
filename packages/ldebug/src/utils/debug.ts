@@ -4,6 +4,7 @@ import { createFormatHelper } from '~/utils/format.js';
 
 interface CreateDebugProps extends Partial<CreateFormatOptions> {
 	isDevelopment: boolean;
+	logger?: (message: string) => void;
 }
 
 export function createDebug(props: CreateDebugProps): LazyDebugFunction {
@@ -14,11 +15,16 @@ export function createDebug(props: CreateDebugProps): LazyDebugFunction {
 	const d = createFormatHelper({ ...defaultOptions, ...props });
 
 	if (props.isDevelopment) {
-		const debug = (cb: (d: FormatHelper) => string) => {
-			console.debug(cb(d));
-		};
-
-		return debug;
+		const { logger } = props;
+		if (logger === undefined) {
+			return (cb: (d: FormatHelper) => string) => {
+				console.log(cb(d));
+			};
+		} else {
+			return (cb: (d: FormatHelper) => string) => {
+				logger(cb(d));
+			};
+		}
 	} else {
 		return () => {
 			/* noop */
