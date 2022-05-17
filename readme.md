@@ -49,6 +49,13 @@ Default: `true`
 
 If true, uses [json-stringify-pretty-compact] to stringify objects. Otherwise, uses `JSON.stringify()`.
 
+#### options.logger
+
+Type: `(message: string) => void`\
+Default: `console.log`
+
+A custom logger function to use when logging debug messages.
+
 ### LazyDebugFunction
 
 Type: `(callback: (format: FormatHelper) => string) => void`
