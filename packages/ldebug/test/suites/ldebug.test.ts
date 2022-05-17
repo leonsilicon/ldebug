@@ -1,6 +1,6 @@
 import process from 'node:process';
-import { expect, test } from 'vitest';
-import { spyOnImplementing } from 'vitest-mock-process';
+import { expect, test, vi } from 'vitest';
+import { mockConsoleLog } from 'vitest-mock-process';
 
 // Needed to override `lionp` settings
 process.env.FORCE_COLOR = '3';
@@ -13,13 +13,25 @@ test('works', () => {
 		isDevelopment: true,
 	});
 
-	const mockDebug = spyOnImplementing(console, 'debug', () => {
-		/* noop */
-	});
+	const mockLog = mockConsoleLog();
 
 	debug((f) => f`hello ${['world']}`);
 
-	expect(mockDebug.mock.calls).toMatchSnapshot();
+	expect(mockLog.mock.calls).toMatchSnapshot();
+});
+
+test('works with custom logger', () => {
+	const logger = vi.fn(() => {
+		/* noop */
+	});
+	const debug = createDebug({
+		isDevelopment: true,
+		logger,
+	});
+
+	debug(() => 'hello world');
+
+	expect(logger).toBeCalledWith('hello world');
 });
 
 test('works without prettifying', () => {
@@ -29,13 +41,11 @@ test('works without prettifying', () => {
 		highlight: false,
 	});
 
-	const mockDebug = spyOnImplementing(console, 'debug', () => {
-		/* noop */
-	});
+	const mockLog = mockConsoleLog();
 
 	debug((f) => f`hello ${['world']}`);
 
-	expect(mockDebug).toBeCalledWith('hello ["world"]');
+	expect(mockLog).toBeCalledWith('hello ["world"]');
 });
 
 test('does not evaluate the callback in production', () => {
